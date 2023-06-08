@@ -4,6 +4,8 @@
 
 # NestJS boilerplate with msqyl and typeorm
 
+[![Run Tests on push](https://github.com/marianotella/nest-with-tests-boilerplate/actions/workflows/tests.yml/badge.svg)](https://github.com/marianotella/nest-with-tests-boilerplate/actions/workflows/tests.yml)
+
 ## Description
 
 [NestJS](https://github.com/nestjs/nest) boilerplate for a typical project with mysql and typeorm.
