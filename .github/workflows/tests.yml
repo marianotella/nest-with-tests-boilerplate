@@ -1,0 +1,30 @@
+name: Run tests on push
+on: push
+jobs:
+  avoid_reduncy: 
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Cancel Previous Runs Pipeline
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: 18
+      - run: npm ci
+      - run: npm run lint
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: 18
+      - run: npm ci
+      - run: npm run test:cov
